@@ -9,8 +9,7 @@ app = Flask(__name__)
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "secretSECRETseekrit"
 
-app.jinja_env.undefined = jinja2.StrictUndefined
-
+JOB_LIST = ["Software Engineer", "QA Engineer", "Product Manager"]
 
 # YOUR ROUTES GO HERE
 @app.route("/")
@@ -23,7 +22,8 @@ def index():
 def app_form():
 	"""Return application form."""
 
-	return render_template("application-form.html")
+	return render_template("application-form.html",
+							JOB_LIST=JOB_LIST)
 
 @app.route("/application-success", methods=["POST"])
 def app_form_response():
@@ -31,8 +31,12 @@ def app_form_response():
 
 	first_name = request.form.get("first-name")
 	last_name = request.form.get("last-name")
-	salary = request.form.get("salary")
+	salary = int(request.form.get("salary"))
 	position  = request.form.get("position")
+
+	for job in JOB_LIST:
+		if position in job:
+			position = job
 
 	return render_template("application-response.html",
 							first_name=first_name,

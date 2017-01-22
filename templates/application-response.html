@@ -7,7 +7,7 @@
 <body>
 
 Thank you, {{ first_name }} {{ last_name }}, for applying to be a {{ position }}. Your
-minimum salary requirement is ${{ salary }}.
+minimum salary requirement is {{ "${:,.2f}".format(salary) }}.
 
 </body>
 {% endblock %}

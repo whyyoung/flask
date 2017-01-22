@@ -14,10 +14,11 @@
         <label for="salary">Salary Requirements: $</label>
         <input id="salary" type="number" name="salary"><br>
         <label for="position">Applying for:</label>
-		<select id="position" name="position">
-			<option value="software-engineer">Software Engineer</option>
-            <option value="qa-engineer">QA Engineer</option>
-            <option value="product-manager">Product Manager</option>
+		
+        <select id="position" name="position">
+            {% for job in JOB_LIST %}
+			<option value={{ job }}>{{ job }}</option>
+            {% endfor %}
 		</select><br>
 
         <input type="submit" name="submit" value="Submit">
