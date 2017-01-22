@@ -1,0 +1,26 @@
+body {
+    background: white;
+    text-align: center;
+}
+
+div.homepage{
+	vertical-align: middle;
+	text-align: center;
+}
+
+h3 span {
+	border: 2px solid black;
+	padding: 5px;
+}
+
+input{
+	background-color: #FFFF99;
+}
+
+select{
+	background-color: #FF9;
+}
+
+input#last-name{
+	font-weight: bold;
+}
